@@ -4,4 +4,5 @@ tensorflow
 flask
 pillow
 gunicorn
+flask-cors
 scikit-learn

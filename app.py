@@ -1,4 +1,3 @@
-
 from flask import Flask, request, jsonify
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
@@ -7,8 +6,10 @@ import io
 from PIL import Image
 import logging
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 # Enable logging
 logging.basicConfig(level=logging.INFO)
@@ -24,6 +25,10 @@ def preprocess_image(img):
     img = np.expand_dims(img, axis=0)
     img = img / 255.0  # Normalize
     return img
+
+@app.route('/')
+def index():
+    return "Flask app is running"
 
 @app.route('/predict', methods=['POST'])
 def predict():
