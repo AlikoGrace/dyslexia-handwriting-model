@@ -3,4 +3,5 @@ pandas
 tensorflow
 flask
 pillow
+gunicorn
 scikit-learn
